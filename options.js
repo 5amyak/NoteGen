@@ -14,7 +14,8 @@ $(document).ready(function() {
 	$("#export-notes").click(function(){
 		var text = $("#notes").text().trim();
 		var doc = new jsPDF('notes');
-		doc.text(20, 20, text);
+		doc.setLineWidth(20);
+		doc.text(10, 10, text);
 
 		doc.save('notes.pdf');
 	})
@@ -84,18 +85,20 @@ $(document).ready(function() {
 	})
 
 	$("#generate-notes").click(function(){
-		var settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "http://localhost:3000/generate-notes",
-			"method": "POST",
-			"headers": {
-				"Content-Type": "application/x-www-form-urlencoded",
-			}
-		}
-
-		$.ajax(settings).done(function (response) {
-			$("#notes").text(response);
-		});
+		$("#file-form").submit();
 	})
+
+	$('#file-form').submit(function() {
+		var formData = new FormData($(this)[0]);
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000/upload',
+			data: formData,
+			processData: false,
+			contentType: false,
+		}).done(function( data ) {
+			$("#notes").text(data);
+		});
+		return false;
+	});
 });
