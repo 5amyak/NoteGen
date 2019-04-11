@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	<style type="text/css">
+		body {
+			padding: 6px 12px 18px 25px;
+			width: 320px;
+		}
+		#resume-recording {
+			display: none;
+		}
+		#pause-recording {
+			display: none;
+		}
+		a.disabled {
+			pointer-events: none;
+			cursor: default;
+		}
+	</style>
+</head>
+<body>
+	<h4>NoteGen</h4>
+	<hr>
+	<div class="center">
+		<a class="btn-large waves-effect waves-light black" id="start-recording"><i class="large material-icons">fiber_new</i></a>
+		<a class="btn-large waves-effect waves-light black" id="pause-recording"><i class="large material-icons">pause</i></a>
+		<a class="btn-large waves-effect waves-light black" id="resume-recording"><i class="large material-icons">play_arrow</i></a>
+		<a class="btn-large waves-effect waves-light black" id="end-recording"><i class="large material-icons">check_circle</i></a>
+	</div>
+	<p>
+		After capture is finished, a new tab will be opened automatically for you to
+		name and save the file. Please do not close the tab before saving the file!
+	</p>
+	<div id="audios-container"></div>
+</body>
+<script src="libs/jquery.min.js"></script>
+<script src="libs/materialize.min.js"></script>
+<script src="libs/MediaStreamRecorder.js"> </script>
+<script src="poptions.js"></script>
+</html>

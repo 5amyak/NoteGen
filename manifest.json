@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "NoteGen",
+	"version": "1.0",
+	"description": "Generate audio from notes",
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_icon": "yt_icon.png"
+	},
+	"options_page": "options.html",
+	"background": {
+		"scripts": ["libs/jquery.min.js", "background.js"],
+		"persistent": false
+	},
+	"permissions": [
+		"tts", "declarativeContent", "contextMenus", "tabs", "<all_urls>", "storage", "activeTab", "tabCapture"
+	]
+}
